@@ -1,0 +1,208 @@
+@import "../../Styles/mixin";
+.top-header {
+  width: 100%;
+  height: 48px;
+  background-color: rgb(0, 0, 0);
+
+  .flex {
+    width: 1305px;
+    height: 100%;
+    margin: 0 auto;
+    @include flexbox(space-between, center);
+
+    p {
+      padding: 20px 0 0 0;
+      font-size: 14px;
+      margin-left: 55px;
+      font-weight: 400;
+      color: rgb(250, 250, 250);
+      text-align: center;
+      margin-left: 320px;
+      cursor: context-menu;
+
+      strong {
+        font-size: 14px;
+        font-weight: 600;
+        text-align: end;
+        text-decoration-line: underline;
+        color: rgb(250, 250, 250);
+        margin-left: 10px;
+        cursor: pointer;
+      }
+    }
+
+    select {
+      text-align: center;
+      cursor: pointer;
+      font-weight: 700;
+      outline: none;
+
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+  }
+}
+.header-hr {
+  margin: 0;
+}
+.header {
+  left: 225px;
+  height: 70px;
+  @include flexbox(space-between, center);
+  .logo {
+    position: relative;
+    color: rgb(0, 0, 0);
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 24px;
+    text-align: left;
+    cursor: pointer;
+    h1 {
+      font-family: Inter;
+    }
+    &:hover::before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      background: white;
+      animation: showRight 1s ease forwards;
+      animation-delay: 0.4s;
+    }
+  }
+
+  .header-menu {
+    ul {
+      position: relative;
+      width: 400px;
+      list-style: none;
+      @include flexbox(space-between, center);
+      li {
+        position: relative;
+        color: rgb(0, 0, 0);
+        font-family: Poppins;
+        font-size: 16px;
+        font-weight: 400;
+        letter-spacing: 0%;
+        text-align: center;
+        cursor: pointer;
+        height: 30px;
+        margin-top: 20px;
+        display: flex;
+        align-items: center;
+        .header-li-Link {
+          text-decoration: none;
+          color: rgb(0, 0, 0);
+          padding: 0 10px 0 10px;
+
+          &::before {
+            content: "";
+            position: absolute;
+            visibility: hidden;
+            height: 100%;
+            width: 0;
+            top: 0;
+            left: 0;
+            background-color: black;
+            color: #fff;
+            transition: 0.8s;
+            border-radius: 5px;
+            z-index: -1;
+          }
+          &:hover::before {
+            visibility: visible;
+            width: 100%;
+          }
+          &:hover {
+            color: #fff;
+            visibility: visible;
+            z-index: 99;
+          }
+          &:active::before {
+            background: orange;
+            border: none;
+            transition: 0.1s;
+          }
+        }
+      }
+      ul::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: 120%;
+        background: white;
+        animation: showRight 1s ease forwards;
+        animation-delay: 1s;
+        z-index: 66;
+      }
+    }
+  }
+  .header-hero {
+    width: 243px;
+    height: 38px;
+    background: rgb(248, 248, 248);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    margin-left: 60px;
+
+    input {
+      border: none;
+      outline: none;
+      font-size: 15px;
+      background: rgb(248, 248, 248);
+    }
+    img {
+      width: 20px;
+      height: 20px;
+      margin-left: 10px;
+      cursor: pointer;
+      &:hover {
+        transform: scale(1.1);
+      }
+      &:active {
+        transform: scale(1.2);
+      }
+    }
+  }
+  .header-like-user {
+    width: 100px;
+    display: flex;
+    gap: 15px;
+    position: relative;
+    .like {
+      cursor: pointer;
+      img {
+        width: 25px;
+        height: 25px;
+      }
+      span {
+        position: absolute;
+        bottom: 14px;
+        left: 21px;
+        font-size: 17px;
+        font-weight: 700;
+      }
+    }
+    .cart {
+      cursor: pointer;
+      img {
+        width: 25px;
+        height: 25px;
+      }
+      span {
+        position: absolute;
+        bottom: 14px;
+        font-size: 17px;
+        font-weight: 700;
+        color: lightcoral;
+      }
+    }
+  }
+}
+.container {
+  width: 1200px;
+}

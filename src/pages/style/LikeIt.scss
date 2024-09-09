@@ -1,0 +1,143 @@
+@import "../../Styles/mixin";
+
+.likeIt {
+  .top-likeIt {
+    .wishList-likIt {
+      @include flexbox(space-between, center);
+      margin: 60px 0px;
+
+      p {
+        color: rgb(0, 0, 0);
+        font-family: Poppins;
+        font-size: 20px;
+        font-weight: 400;
+        line-height: 26px;
+      }
+      .btn-btn {
+        position: relative;
+        button {
+          width: 223px;
+          height: 56px;
+          padding: 16px 48px 16px 48px;
+          color: rgb(0, 0, 0);
+          font-family: Poppins;
+          font-size: 16px;
+          font-weight: 500;
+          line-height: 24px;
+          box-sizing: border-box;
+          border: 1px solid rgba(0, 0, 0, 0.5);
+          border-radius: 4px;
+          z-index: 99;
+          &:active {
+            opacity: 0.5;
+          }
+          &:hover {
+            transform: scaleX(1.1);
+            transition: 1s;
+          }
+          &:active::before {
+            width: 100%;
+          }
+          &:focus {
+            transform: scale(1.1);
+            transition: 2.9s;
+          }
+          &:focus::before {
+            width: 100%;
+          }
+        }
+        button::before {
+          content: " ";
+          position: absolute;
+          top: 0;
+          left: 0px;
+          width: 0;
+          height: 55px;
+          border-radius: 4px;
+          background: linear-gradient(
+            to right,
+            rgb(219, 255, 255),
+            rgb(200, 200, 200)
+          );
+          z-index: -1;
+          transition: 4.5s;
+        }
+      }
+    }
+  }
+  //   TODO:  bottom
+  .bottom-likeIt {
+    .justForYou-likeIt {
+      margin: 60px 0px;
+      @include flexbox(space-between, center);
+      .div-all {
+        width: 156px;
+        height: 40px;
+        @include flexbox(center);
+        .div-red {
+          width: 20px;
+          height: 40px;
+          border-radius: 4px;
+          background: rgb(219, 68, 68);
+        }
+        p {
+          color: rgb(0, 0, 0);
+          font-family: Poppins;
+          font-size: 20px;
+          font-weight: 400;
+          line-height: 26px;
+        }
+      }
+      .btnBtn {
+        position: relative;
+        button {
+          width: 150px;
+          height: 65px;
+          order: 1;
+          box-sizing: border-box;
+          border: 1px solid rgba(0, 0, 0, 0.5);
+          border-radius: 4px;
+          color: rgb(0, 0, 0);
+          font-family: Poppins;
+          font-size: 16px;
+          font-weight: 500;
+          line-height: 24px;
+          z-index: 99;
+          &:active {
+            opacity: 0.5;
+          }
+          &:hover {
+            transform: scaleX(1.1);
+            transition: 1s;
+          }
+          &:active::before {
+            width: 100%;
+          }
+          &:focus {
+            transform: scale(1.1);
+            transition: 2.9s;
+          }
+          &:focus::before {
+            width: 100%;
+          }
+        }
+        button::before {
+          content: " ";
+          position: absolute;
+          top: 0;
+          left: 0px;
+          width: 0;
+          height: 63px;
+          border-radius: 4px;
+          background: linear-gradient(
+            to right,
+            rgb(219, 255, 255),
+            rgb(200, 200, 200)
+          );
+          z-index: -1;
+          transition: 4.5s;
+        }
+      }
+    }
+  }
+}

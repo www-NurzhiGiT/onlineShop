@@ -1,0 +1,6 @@
+.products-map {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  width: 1170px;
+  margin: 0 auto;
+}

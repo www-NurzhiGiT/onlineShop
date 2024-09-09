@@ -1,0 +1,146 @@
+@import "../../Styles/Mixin.scss";
+
+.register {
+  @include flexbox(flex, center);
+  justify-content: space-between;
+  margin: 0 20px 0 0;
+  width: 1380px;
+  height: 981px;
+  position: relative;
+  .register-img1 {
+    width: 805px;
+    height: 781px;
+  }
+  .register-form {
+    display: flex;
+    flex-direction: column;
+    .register-text {
+      h3 {
+        color: rgb(0, 0, 0);
+        font-family: Inter;
+        font-size: 36px;
+        font-weight: 500;
+        line-height: 30px;
+      }
+      p {
+        color: rgb(0, 0, 0);
+        font-family: Poppins;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 24px;
+      }
+    }
+    .register-info {
+      .inputs {
+        display: flex;
+        flex-direction: column;
+        input {
+          width: 370px;
+          height: 32px;
+          margin: 30px 80px 30px 0;
+          border: none;
+          border-bottom: 1.5px solid gray;
+          outline: none;
+          &:focus {
+            border-bottom: 1.5px solid black;
+            background: rgb(20, 250, 190);
+            border-top-right-radius: 50px;
+            border-bottom-right-radius: 50px;
+          }
+
+          font-family: Poppins;
+          font-size: 16px;
+          font-weight: 400;
+          line-height: 24px;
+        }
+      }
+      .buttons {
+        display: flex;
+        flex-direction: column;
+        width: 371px;
+        height: 57px;
+        position: relative;
+
+        .btnOne {
+          width: 100%;
+          height: 60px;
+          border-radius: 6px;
+          background: rgb(219, 68, 68);
+          border: 1px solid rgba(0, 0, 0, 0.4);
+          padding: 16px 110px 16px 110px;
+          color: rgb(250, 250, 250);
+          font-family: Poppins;
+          font-size: 16px;
+          font-weight: 400;
+          line-height: 24px;
+          z-index: 99;
+          &:active {
+            opacity: 0.5;
+          }
+          &:active::before {
+            width: 100%;
+          }
+          &:focus {
+            transform: scale(1);
+            transition: 0.9s ease-out;
+          }
+          &:focus::before {
+            width: 100%;
+          }
+        }
+        .btnOne::before {
+          content: " ";
+          position: absolute;
+          top: 0;
+          left: 0px;
+          width: 0;
+          height: 100%;
+          border-radius: 6px;
+          background: linear-gradient(
+            to right,
+            rgb(219, 68, 68),
+            rgb(255, 127, 127)
+          );
+          z-index: -1;
+          transition: 4.5s;
+        }
+
+        .btn2 {
+          padding: 16px 86px 16px 86px;
+          position: relative;
+          box-sizing: border-box;
+          border: 1px solid rgba(0, 0, 0, 0.4);
+          border-radius: 4px;
+          top: 32px;
+          .img-google {
+            position: absolute;
+            width: 21.75px;
+            height: 21.71px;
+            left: 74.52px;
+            top: 17px;
+            object-fit: contain;
+          }
+          &:active {
+            opacity: 0.5;
+            background: rgba(0, 0, 0, 0.1);
+          }
+        }
+        // &:hover .btnOne {
+        //   //   visibility: visible;
+        // }
+        .logIn {
+          display: flex;
+          gap: 10px;
+          position: relative;
+          top: 45px;
+          .liInk {
+            text-decoration: none;
+            &:hover {
+              text-decoration: underline;
+            }
+          }
+        }
+      }
+    }
+  }
+}

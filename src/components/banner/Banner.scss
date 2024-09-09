@@ -1,0 +1,44 @@
+.banner {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-grow: 1;
+  width: 1170px;
+  .banner-slider {
+    width: 234px;
+    height: 421px;
+    border-right: 1px solid #000;
+    ul {
+      padding: 0;
+      margin-top: 40px;
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      li {
+        text-align: left;
+        color: rgb(0, 0, 0);
+        font-family: Poppins;
+        font-size: 16px;
+        font-weight: 400;
+        letter-spacing: 0%;
+        &:hover {
+          color: rgb(25, 25, 250);
+          cursor: pointer;
+          font-size: 19px;
+        }
+      }
+    }
+  }
+  .banner-carousel {
+    margin-top: 40px;
+    width: 992px;
+    height: 380px;
+    img {
+      width: 100%;
+      height: 380px;
+
+      object-fit: inherit;
+    }
+  }
+}
