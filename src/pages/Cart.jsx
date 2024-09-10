@@ -6,6 +6,8 @@ import Up from "../assets/image/up.png";
 import { useSelector, useDispatch } from "react-redux";
 import { incQuantity } from "../redux/cart/cartSlice";
 import { decQuantity } from "../redux/cart/cartSlice";
+import { NavLink } from "react-router-dom";
+import { toast } from "react-toastify";
 
 function Cart() {
   const { items } = useSelector((state) => state.carts);
@@ -16,10 +18,26 @@ function Cart() {
     (sub, item) => sub + item.price * item.quantity,
     0
   );
+
+  const deliveryTotal = 500;
+  const total = subTotal + deliveryTotal;
+
+  const handleButtonClick = () => {
+    if (items.length === 0) {
+      toast.error("Корзина пуста!");
+    } else {
+      toast.success("Оформление была успешно завершена:  Спасибо за покупку!");
+    }
+  };
   return (
     <>
       <div className="pp">
-        <p className="p1">Home </p> <p className="p2"> / Cart</p>
+        <p className="p1">
+          <NavLink to="/" className="home-text">
+            Home
+          </NavLink>
+        </p>
+        <p className="p2"> / Cart</p>
       </div>
 
       <div className="cart-wrapper container">
@@ -60,7 +78,6 @@ function Cart() {
                 />
               </div>
             </div>
-
             <p>${x.price * x.quantity}</p>
           </div>
         ))}
@@ -69,29 +86,29 @@ function Cart() {
         <button className="btnThree">Return to Shop</button>
         <button className="btnFour">Update Cart</button>
       </div>
-      <div></div>
-      <div className="total-amount">
-        <div>
+      {/* TODO: 3 */}
+      <div className="total-amount container">
+        <div className="in-btn">
           <input type="text" placeholder="Coupon Code" />
           <button>Apply Coupon</button>
         </div>
-        <div>
-          <p>Cart Total</p>
-          <div>
+        <div className="Cart-total">
+          <p className="cart-total-p">Cart Total</p>
+          <div className="total-div-3">
             <p>Sabtotal:</p>
             <p>${subTotal}</p>
           </div>
           <hr />
-          <div>
+          <div className="total-div-3">
             <p>Shipping:</p>
-            <p>Free</p>
+            <p>${deliveryTotal}</p>
           </div>
           <hr />
-          <div>
+          <div className="total-div-3">
             <p>Total:</p>
-            <p>$1750</p>
+            <p>${total}</p>
           </div>
-          <button>Procees to checkout</button>
+          <button onClick={handleButtonClick}>Procees to checkout</button>
         </div>
       </div>
     </>

@@ -1,15 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Search from "../../assets/svg/SearchInput.svg";
 import Like from "../../assets/image/like.png";
 import Cart from "../../assets/image/cart.png";
 
 import "./Header.scss";
+import { useTranslation } from "react-i18next";
 
 function Header() {
+  const { i18n, t } = useTranslation();
+  const [active, setActive] = useState("en");
+
   const handleChangeLanguage = (event) => {
     const lng = event.target;
     console.log(lng);
+  };
+
+  const changeLng = (language) => {
+    i18n.changeLanguage(language);
+    setActive(language);
   };
 
   return (
@@ -17,13 +26,33 @@ function Header() {
       <div className="top-header">
         <div className="flex">
           <p>
-            Summer Sale For All Swim Suits And Free Express Delivery - OFF 50%!{" "}
+            {t(
+              "Summer Sale For All Swim Suits And Free Express Delivery - OFF 50%!"
+            )}
             <strong>Shop Now</strong>
           </p>
           <select onChange={handleChangeLanguage}>
-            <option value="en">English</option>
-            <option value="ru">Russian</option>
-            <option value="kg">Kyrgyz</option>
+            <option
+              className={active === "en" ? "active" : ""}
+              onClick={() => changeLng("en")}
+              value="EN"
+            >
+              English
+            </option>
+            <option
+              className={active === "ru" ? "active" : ""}
+              onClick={() => changeLng("ru")}
+              value="RU"
+            >
+              Russian
+            </option>
+            <option
+              className={active === "kg" ? "active" : ""}
+              onClick={() => changeLng("kg")}
+              value="KG"
+            >
+              Kyrgyz
+            </option>
           </select>
         </div>
       </div>
@@ -37,22 +66,22 @@ function Header() {
           <ul>
             <li>
               <Link to="/" className="header-li-Link">
-                Home
+                {t("Home")}
               </Link>
             </li>
             <li>
               <Link to="/contact" className="header-li-Link">
-                Contact
+                {t("Contact")}
               </Link>
             </li>
             <li>
               <Link to="/about" className="header-li-Link">
-                About
+                {t("About")}
               </Link>
             </li>
             <li>
               <Link to="/register" className="header-li-Link">
-                Sign Up
+                {t("Sign Up")}
               </Link>
             </li>
           </ul>
